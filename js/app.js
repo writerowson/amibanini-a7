@@ -16,9 +16,10 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-  likedPostsId.plus(id);
-  showPosts(posts);
-  console.log(id)
+  likedPostsId.push(id);
+  const likedPosts = posts.filter((post) => !likedPostsId.includes(post.id));
+  showPosts(likedPosts);
+
 };
 
 const reportPost = (id) => {
@@ -28,6 +29,9 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
+  if (text.length < 30) {
+
+  }
   return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
@@ -152,7 +156,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
-  posts.forEach((post) => {
+  reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
   });
