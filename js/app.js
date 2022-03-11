@@ -17,10 +17,17 @@ const isLiked = (id) => {
 
 const addToLiked = (id) => {
   likedPostsId.push(id);
-  const likedPosts = posts.filter((post) => !likedPostsId.includes(post.id));
-  showPosts(likedPosts);
+  // document.querySelectorAll('.post__button')
+  // heartButton.addEventlistener('click', () => heartButton.style.color = "red")
+  const allLikekedPosts = document.getElementsByClassName("fa-solid fa-heart")
+  for (const allPosts of allLikekedPosts) {
+    allPosts.style.color = "red"
+  }
+  // allLikekedPosts.style.color
+  // showPosts(likedPosts);
 
 };
+
 
 const reportPost = (id) => {
   reportedPostsId.push(id);
@@ -70,7 +77,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${image}" alt="User Picture" />
+                    <img src="${post.userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
@@ -92,7 +99,7 @@ const createPost = (post) => {
 
               <div class="post__footer">
                 <div class="post__buttons">
-                  <button class="post__button" onclick="addToLiked(${post.id})">
+                  <button id="heartBtn" class="post__button " onclick="addToLiked(${post.id})">
                   <i class="fa-solid fa-heart ${isLiked(post.id) && "text-danger"}"></i>
                     
                   </button>
@@ -127,9 +134,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${post.comments.user}
                       </a>
-                      ${post.comments?.text}
+                      ${post.comments.text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
@@ -140,6 +147,7 @@ const createPost = (post) => {
 };
 
 const showPosts = (posts) => {
+  console.log(posts)
   const productsContainer = document.getElementById("posts");
   productsContainer.innerHTML = "";
 
@@ -151,14 +159,17 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
+  const allLikekedPosts = document.getElementById("liked")
+  allLikekedPosts.innerHTML = ""
   likedPosts.forEach((post) => {
     const div = createPost(post);
-    document.getElementById("liked").appendChild(div);
+    allLikekedPosts.appendChild(div);
   });
 };
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
+  document.getElementById("reported").innerHTML = ""
   reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
