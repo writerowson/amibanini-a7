@@ -59,7 +59,14 @@
         </div>
     </main>
     <!-- Bonous Part -->
-    <section class="container mt-5">
+    <section class="container my-5">
+        <h3>What does javascript event loop do ?</h3>
+        <p>Actually javascript is single threaded programming language but the browser APIs act as multiple threads.
+            Most browser has an event loop for every browser tab. Event loop is one of a awesome feature of node.js. The
+            JS code of node.js only process one thing at a time.Event loop make this easy which constantly check and
+            waits for call stack. If it finds there any task ,it will complete then call back the queue.
+        </p>
+
         <h3>Differences between Local Storage and Session Storage</h3>
         <table class="table">
             <thead></thead>
@@ -86,8 +93,9 @@
                         </li>
                         <li>
                             The advantages of session storage is cleared all data after closing browser , attacker
-                            couldn't get any info from session storage. Local storage save data, So user don't need to
-                            login every time and remember many informations
+                            couldn't get any information/data from session storage. Local storage save data, So user
+                            don't need to
+                            login every time and remember many informations.
                         </li>
                     </td>
 
@@ -98,7 +106,8 @@
     </section>
 
 
-    <footer></footer>
+    <footer class="container text-center mb-5"> © 2009-2022 Insta-Sohor
+        .com, All Rights Reserved</footer>
 
     <!-- add javascript  file  -->
     <script src="./js/app.js"></script>
