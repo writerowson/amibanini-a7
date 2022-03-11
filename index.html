@@ -62,20 +62,35 @@
     <section class="container mt-5">
         <h3>Differences between Local Storage and Session Storage</h3>
         <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Local Storage</th>
-                    <th scope="col">Session Storage</th>
-                </tr>
-            </thead>
+            <thead></thead>
             <tbody>
                 <tr>
-                    <td>Local Storage</td>
-                    <td>Session Storage</td>
-                </tr>
-                <tr>
-                    <td>Local Storage</td>
-                    <td>Session Storage</td>
+                    <td>
+                        <li>
+                            When the page session ends session Storages data cleared, however, local storage holds data
+                            in browser.
+                        </li>
+                        <li>
+                            With same URL creating multiple tabs ,same session storage creates storages for each tabs
+                            and New
+                            tabs also creates new session storage. In new tabs/windows can use old data from local
+                            storage, no
+                            need to create new.
+                        </li>
+                        <li> Session storage expires after reload, closing page/tab/windows. Local storage does not
+                            expire.
+                        </li>
+                        <li>
+                            To delete data from session storage just close the page. To delete data from local storage
+                            we need javascript.
+                        </li>
+                        <li>
+                            The advantages of session storage is cleared all data after closing browser , attacker
+                            couldn't get any info from session storage. Local storage save data, So user don't need to
+                            login every time and remember many informations
+                        </li>
+                    </td>
+
                 </tr>
 
             </tbody>
