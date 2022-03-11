@@ -17,15 +17,7 @@ const isLiked = (id) => {
 
 const addToLiked = (id) => {
   likedPostsId.push(id);
-  // document.querySelectorAll('.post__button')
-  // heartButton.addEventlistener('click', () => heartButton.style.color = "red")
-  const allLikekedPosts = document.getElementsByClassName("fa-solid fa-heart")
-  for (const allPosts of allLikekedPosts) {
-    allPosts.style.color = "red"
-  }
-  // allLikekedPosts.style.color
-  // showPosts(likedPosts);
-
+  showPosts(posts);
 };
 
 
@@ -133,10 +125,10 @@ const createPost = (post) => {
 
                   <div class="post__description">
                     <small>
-                      <a class="post__name--underline" href="#">
-                          ${post.comments.user}
+                      <a class="post__name--underline" href="#${post.comments?.user}">
+                     
                       </a>
-                      ${post.comments.text}
+                      ${post.comments?.text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
